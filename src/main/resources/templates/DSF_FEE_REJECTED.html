@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejected DSF Setup</title>
+    <style>
+        body {
+        font-family: Calibri, sans-serif;
+        }
+
+        .program-name {
+        font-family: Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+<p>Hello <span style="font-weight: bold;">{{makerName}}</span>,</p>
+
+<p>
+    Please be advised that one or more DSF Set up(s) have been rejected for
+    <span class="program-name" style="font-weight: bold;">{{programName}}</span>.
+    Please review and action accordingly.
+</p>
+
+<p>
+    <span style="font-weight: bold;">Rejection Reason:</span> {{rejectionReason}}
+</p>
+
+<p>
+    <a href="{{dsfModuleLink}}" style="color: blue; text-decoration: underline;">Login to the DSF module</a>
+</p>
+
+</body>
+</html>

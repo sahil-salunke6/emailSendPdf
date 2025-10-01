@@ -1,0 +1,21 @@
+server:
+  port: 8082
+
+
+spring:
+  mail:
+    host: smtp.mail.yahoo.com
+    port: 587
+    username: use.fornothing@yahoo.com
+    password: useForNothing@1   # generate from Yahoo account security > App Passwords
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
