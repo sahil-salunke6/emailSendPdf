@@ -1,0 +1,21 @@
+{
+    "request": {
+        "saluation": "Evening",
+        "incident": {
+            "ticketNumber": "123456",
+            "ticketTitel": "Title of ticket",
+            "ticketDescription": "Description of the ticket"
+        },
+        "dsfSetup": {
+            "programName": "Trade Finance Program",
+            "dsfModuleLink": "https://bank.example.com/dsf",
+            "rejectionReason": "Rate exceeds threshold"
+        },
+        "user": {
+            "firstName": "Harshal",
+            "lastName": "Pande",
+            "email": "hp@test.com"
+        }
+    },
+    "action": "pdfBox"
+}
