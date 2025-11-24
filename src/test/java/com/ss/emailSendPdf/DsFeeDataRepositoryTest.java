@@ -75,6 +75,9 @@ class DsFeeDataRepositoryTest {
     @Mock
     private Expression<LocalDate> dateExpression;
 
+    @Mock
+    private Expression<Comparable> comparableExpression;
+
     @InjectMocks
     private DsFeeDataRepository repository;
 
@@ -365,7 +368,7 @@ class DsFeeDataRepositoryTest {
         when(dateCriteriaQuery.from(DreamDsFee.class)).thenReturn(dsFeeRoot);
         when(dsFeeRoot.get(anyString())).thenReturn(path);
         when(path.as(LocalDate.class)).thenReturn(dateExpression);
-        when(criteriaBuilder.greatest(any())).thenReturn(dateExpression);
+        when(criteriaBuilder.greatest(any(Expression.class))).thenReturn((Expression) dateExpression);
         when(dateCriteriaQuery.select(any())).thenReturn(dateCriteriaQuery);
         when(dateCriteriaQuery.where(any(Predicate.class))).thenReturn(dateCriteriaQuery);
         when(criteriaBuilder.equal(any(), any())).thenReturn(predicate);
@@ -389,7 +392,7 @@ class DsFeeDataRepositoryTest {
         when(dateCriteriaQuery.from(DreamDsFee.class)).thenReturn(dsFeeRoot);
         when(dsFeeRoot.get(anyString())).thenReturn(path);
         when(path.as(LocalDate.class)).thenReturn(dateExpression);
-        when(criteriaBuilder.greatest(any())).thenReturn(dateExpression);
+        when(criteriaBuilder.greatest(any(Expression.class))).thenReturn((Expression) dateExpression);
         when(dateCriteriaQuery.select(any())).thenReturn(dateCriteriaQuery);
         when(dateCriteriaQuery.where(any(Predicate.class))).thenReturn(dateCriteriaQuery);
         when(criteriaBuilder.equal(any(), any())).thenReturn(predicate);
@@ -475,7 +478,8 @@ class DsFeeDataRepositoryTest {
         when(dsFeeRecordDatePath.as(LocalDate.class)).thenReturn(dateExpression);
         when(recordDatePath.as(LocalDate.class)).thenReturn(dateExpression);
 
-        when(criteriaBuilder.greatest(any(Expression.class))).thenReturn(dateExpression);
+        // Fix the greatest() mock - it returns Expression<X extends Comparable>
+        when(criteriaBuilder.greatest(any(Expression.class))).thenReturn((Expression) dateExpression);
         when(subquery.select(any(Expression.class))).thenReturn(subquery);
         when(subquery.where(any(Predicate.class))).thenReturn(subquery);
 
